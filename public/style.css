@@ -1,0 +1,88 @@
+body {
+  background-color: #e5e5e5;
+}
+.bg-green{
+  background-color: #5CB85F;
+  border: #5CB85F;
+}
+.bg-blue {
+  background-color: rgb(0, 0, 192);
+}
+.sidebar-fixed {
+  background-color: rgb(0, 0, 192);
+  height: 100vh;
+  width: 70px;
+  z-index: 2000;
+  padding: 10px 0;
+}
+.sidebar-fixed li {
+  color: white;
+  list-style-type: none;
+}
+.sidebar-fixed li a {
+  font-size: 12px;
+}
+.togle {
+  margin-left: 99px;
+}
+.sidebar-colaps {
+  background-color: white;
+  height: 100vh;
+  width: 270px;
+  background-color: white;
+  padding-left: 70px;
+  padding-top: 60px;
+}
+.colapses {
+  position: fixed;
+}
+.main {
+  position: relative;
+  top: 45px;
+  left: 87px;
+  width: 120vw;
+  margin-right: -20px;
+  transition: 0.5s;
+}
+.main-colapse {
+  width: 75vw;
+  left: 278px;
+}
+
+.logo1 {
+  width: 34px;
+  height: 34px;
+  background: #cfd4ed;
+  border: 2px solid #8d97ca;
+}
+.logo2 {
+  width: 100px;
+  height: 34px;
+  background: #cfd4ed;
+  border: 1px solid #9ea7cf;
+  margin-left: 83px;
+}
+.nav-item {
+  margin-right: 90px !important;
+}
+
+a.nav-link.text-dark:hover {
+  background-color: #9ea7cf;
+  border-radius: 0;
+}
+#svg:hover {
+  background-color: #9ea7cf;
+  border-radius: 0;
+}
+a.btn.bg-blue.btn-sm.text-white.rounded-0:hover {
+  width: 100%;
+  background-color: rgb(0, 0, 192);
+  border: 0;
+}
+
+.button-cancel{
+  border: 1px solid #0D28A6;
+  border-radius: 2px;
+  width: 69px;
+  height: 37px;
+}

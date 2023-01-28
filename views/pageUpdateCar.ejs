@@ -1,0 +1,57 @@
+<div class="mb-5">
+  <div class="d-flex pt-3">
+    <a href="" class="text-decoration-none text-dark fw-bold">Cars ></a>
+    <a href="" class="text-decoration-none text-dark fw-semibold">List Car ></a>
+    <a href="" class="text-decoration-none text-dark fw-normal"> Add New Car</a>
+  </div>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2">
+    <h4 class="fw-bold">Update Car Information</h4>
+  </div>
+  <form action="/update?_method=PUT" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<%= car.id %>" />
+    <div class="form pb-5 bg-white">
+      <div class="row g-3 align-items-center ms-3 mt-3 pt-2">
+        <div class="col-2">
+          <label for="nama" class="col-form-label">Nama<span class="text-danger">*</span></label>
+        </div>
+        <div class="col-4">
+          <input type="text" id="nama" class="form-control rounded-0" name="nama" required value="<%= car.nama %>" required />
+        </div>
+      </div>
+      <div class="row g-3 align-items-center ms-3 mt-3 pt-2">
+        <div class="col-2">
+          <label for="harga" class="col-form-label">Sewa Per Hari<span class="text-danger">*</span></label>
+        </div>
+        <div class="col-4">
+          <input type="text" name="harga" id="harga" class="form-control rounded-0" required value="<%= car.harga %>" required />
+        </div>
+      </div>
+      <div class="row g-3 align-items-center ms-3 mt-3 pt-2">
+        <div class="col-2">
+          <label for="ukuran" class="col-form-label">Ukuran*</label>
+        </div>
+        <div class="col-4">
+          <select class="form-select rounded-0" name="ukuran" value="<%= car.ukuran %>">
+            <% if (car.ukuran) { %>
+            <option value="<%= car.ukuran %> "><%= car.ukuran %></option>
+            <% } %>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center ms-3 mt-3 pt-2">
+        <div class="col-2">
+          <label for="foto" class="col-form-label">Foto<span class="text-danger">*</span></label>
+        </div>
+        <div class="col-4">
+          <input type="file" id="foto" name="foto" class="form-control rounded-0" value="<%= car.img %> " />
+          <p>File size max. 2MB</p>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="button-cancel bg-white rounded-0 fw-semibold pt-1"><a href="/" class="text-decoration-none"> Cancel</a></button>
+    <button type="submit" class="btn btn-primary rounded-0 fw-semibold text-white">Save</button>
+  </form>
+</div>

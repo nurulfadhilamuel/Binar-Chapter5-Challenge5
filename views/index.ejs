@@ -1,0 +1,69 @@
+<div class="d-flex mt-3">
+  <a href="" class="text-decoration-none text-dark fw-bold">Cars ></a>
+  <a href="" class="text-decoration-none text-dark fw-semibold">List Car ></a>
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2">
+  <h4>List Cars</h4>
+  <div class="col-5">
+    <% if (msg.length !== 0) { %>
+      <div class="alert alert-success text-center" role="alert"><%= msg %></div>
+      <% } %> <% if (msgU.length !== 0) { %>
+      <div class="alert alert-success text-center" role="alert"><%= msgU %></div>
+      <% } %> <% if (msgE.length !== 0) { %>
+      <div class="alert alert-success text-center" role="alert"><%= msgE %></div>
+      <% } %> <% if (msgD.length !== 0) { %>
+      <div class="alert bg-dark text-white text-center" role="alert"><%= msgD %></div>
+      <% } %>
+  </div>
+  <div class="btn-toolbar mb-md-0">
+    <a href="/tambah" class="btn  bg-blue fw-bold btn-sm text-white rounded-0">
+      <i class="bi bi-plus" style="font-size: 18px"></i>
+      Add New Car
+    </a>
+  </div>
+</div>
+<form>
+  <button class="btn btn-outline-primary" name="size" value="All">All</button>
+  <button class="btn btn-outline-primary" name="size" value="small">Small</button>
+  <button class="btn btn-outline-primary" name="size" value="medium">Medium</button>
+  <button class="btn btn-outline-primary" name="size" value="large">Large</button>
+</form>
+<div class="row">
+  <% viewCars.forEach((car)=>{ %>
+  <div class="col-4 mb-3 mt-4 <%= car.ukuran %>">
+    <div class="card px-4 pt-2" style="width: 18rem; height: 25rem">
+      <img src="<%= car.foto %>" class="card-img-top" alt="mobil-01" width="250" height="160" />
+      <div class="card-body">
+        <h5 class="card-title" style="height: 35px; overflow-y: hidden; font-size: 14px"><%= car.nama %>/<%= car.ukuran %></h5>
+        <h4 style="font-size: 16px"><strong> Rp<%= car.harga %> / hari</strong></h4>
+        <p style="height: 75px; overflow-y: hidden; font-size: 14px"><i class="bi bi-clock"></i> Updated At <% const dateNow = car.updatedAt; const requestTime = new Date(dateNow).toDateString(); %> <%= requestTime %></p>
+        <div class="d-grid gap-2 d-md-block text-center mt-3">
+          <button type="button" data-bs-toggle="modal" class="btn btn-outline-danger rounded-0" id="<%= car.id %> " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="hapus(this)"><i class="fa fa-trash"></i>Delete</button>
+          <a href="/<%= car.id %> " class="btn btn-success bg-green border-color-none px-4 rounded-0" style="height: 39px;" type=""><i class="bi bi-pencil-square"></i> Edit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="d-flex flex-column gap-3 text-center">
+          <image class="mx-auto" src="img/img-BeepBeep.svg" height="121px" />
+          <div class="fw-bolder">Menghapus Data Mobil</div>
+          <div class="fw-light">Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin ingin menghapus?
+          </div>
+      </div>
+      </div>
+      <div class="m-auto pb-3">
+        <button type="button" class="btn btn-light" style="border-color: #0d28a6; border-radius: 2px; width: 100px;" data-bs-dismiss="modal">Tidak</button>
+        <form action="/hapus?_method=DELETE" method="POST" class="d-inline">
+          <input type="hidden" name="id" id="muel"/>
+          <button class="btn text-light bg-blue"><i class="bi bi-trash bg-blue"></i>Ya</button>
+        </form>
+      </div>
+    </div>
+  </div
